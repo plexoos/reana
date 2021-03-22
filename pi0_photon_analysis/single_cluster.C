@@ -18,7 +18,7 @@
 //
 // For exact semantics of each choice please see the PDF document
 // --------------------------------------------------------------
-void single_cluster_r6(TString option, TString MBntup="MBntup_gnt.root", TString ERTntup="ERTntup_gnt.root") {
+void single_cluster(TString option, TString MBntup="data/MBntup_gnt.root", TString ERTntup="data/ERTntup_gnt.root") {
   TFile* mb = new TFile(MBntup);
   TFile* ert = new TFile(ERTntup);
 
@@ -37,6 +37,8 @@ void single_cluster_r6(TString option, TString MBntup="MBntup_gnt.root", TString
 
     canvas1->cd(2);
     gnt_ert->Draw("y:z","sec==1","colz");
+    canvas1->SaveAs("plot.png");
+    canvas1->Close();
   }
   else if (option=="ecore") {  // ########### ecore
     TCanvas *canvas2  = new TCanvas("canvas2",  "ecent/ecore:ecore", 3*W/2, H);

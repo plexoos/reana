@@ -15,11 +15,13 @@ workflow:
     steps:
       - environment: 'rootproject/root'
         commands:
-          - root --help >> results/test.txt
+          - mkdir -p results
+          - root -b -q 'single_cluster.C("position")'
+          
           # - python "${helloworld}"
           #     --inputfile "${inputfile}"
           #     --outputfile "${outputfile}"
           #     --sleeptime ${sleeptime}
 outputs:
   files:
-   - results/greetings.txt
+   - results/test.txt
