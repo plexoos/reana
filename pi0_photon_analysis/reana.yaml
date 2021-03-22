@@ -1,0 +1,25 @@
+version: 0.0.1
+inputs:
+  files:
+    - ./single_cluster.C
+    - data/ERTntup_gnt.root
+    - data/MBntup_gnt.root
+#  parameters:
+#    helloworld: code/helloworld.py
+#    inputfile: data/names.txt
+#    outputfile: results/greetings.txt
+#    sleeptime: 0
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'rootproject/root'
+        commands:
+          - root --help >> results/test.txt
+          # - python "${helloworld}"
+          #     --inputfile "${inputfile}"
+          #     --outputfile "${outputfile}"
+          #     --sleeptime ${sleeptime}
+outputs:
+  files:
+   - results/greetings.txt
