@@ -4,11 +4,6 @@ inputs:
     - ./single_cluster.C
     - data/ERTntup_gnt.root
     - data/MBntup_gnt.root
-#  parameters:
-#    helloworld: code/helloworld.py
-#    inputfile: data/names.txt
-#    outputfile: results/greetings.txt
-#    sleeptime: 0
 workflow:
   type: serial
   specification:
@@ -16,12 +11,7 @@ workflow:
       - environment: 'rootproject/root'
         commands:
           - mkdir -p results
-          - root -b -q 'single_cluster.C("position")'
-          
-          # - python "${helloworld}"
-          #     --inputfile "${inputfile}"
-          #     --outputfile "${outputfile}"
-          #     --sleeptime ${sleeptime}
+          - root -b -q 'single_cluster.C("position")' 'single_cluster.C("ecore")' 'single_cluster.C("chisq")'
 outputs:
   files:
    - results/test.txt

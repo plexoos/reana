@@ -37,7 +37,7 @@ void single_cluster(TString option, TString MBntup="data/MBntup_gnt.root", TStri
 
     canvas1->cd(2);
     gnt_ert->Draw("y:z","sec==1","colz");
-    canvas1->SaveAs("plot.png");
+    canvas1->SaveAs("results/position.png");
     canvas1->Close();
   }
   else if (option=="ecore") {  // ########### ecore
@@ -52,6 +52,8 @@ void single_cluster(TString option, TString MBntup="data/MBntup_gnt.root", TStri
 
     canvas2->cd(3);
     gnt_mb->Draw("ecent/ecore:ecore","ecore<4.0 && chisq>5.0","colz");
+    canvas2->SaveAs("results/ecore.png");
+    canvas2->Close();
   }
   else if (option=="chisq") {  // ############ chisq
     TCanvas *canvas3  = new TCanvas("canvas3",  "chi*82 cut", W, H*2);
@@ -67,5 +69,7 @@ void single_cluster(TString option, TString MBntup="data/MBntup_gnt.root", TStri
     gnt_ert->Draw("pt>>h2","chisq<3.0");
     h1->Draw();
     h2->Draw("same");    
+    canvas3->SaveAs("results/chisq.png");
+    canvas3->Close();
   }
 }
