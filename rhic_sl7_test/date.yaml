@@ -1,0 +1,16 @@
+version: 0.0.1
+inputs:
+  files:
+    - ./test.txt
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.1'
+        commands:
+          - mkdir -p results
+          - which docker > results/date.txt
+          - date >> results/date.txt
+outputs:
+  files:
+   - results/date.txt
