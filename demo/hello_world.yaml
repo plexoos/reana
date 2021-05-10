@@ -1,0 +1,19 @@
+version: 0.0.1
+inputs:
+  directories:
+    - ./hello_world_input
+  parameters:
+    outputfile: results/hello_world_output.txt
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'ubuntu:18.04'
+        commands:
+        - mkdir -p results
+        - ls -l ./hello_world_input > $outputfile
+        - date >> $outputfile
+        - wc -c ./hello_world_input/hello_world.txt >> $outputfile
+outputs:
+  files:
+    - results/hello_world_output.txt
