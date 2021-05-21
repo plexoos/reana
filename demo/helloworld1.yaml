@@ -1,0 +1,14 @@
+version: 0.0.1
+inputs:
+  files:
+    - ./hello_world_input/hello_world.txt
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'ubuntu:18.04'
+        commands:
+        - echo 'Hello World!' > helloworld1_ouput.txt
+outputs:
+  files:
+    - helloworld1_ouput.txt
