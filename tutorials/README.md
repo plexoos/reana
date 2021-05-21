@@ -15,13 +15,17 @@ the "file" type of attribute is used to describe a single file.
 * The ```outputs``` section defines the outputs of the workflow, in this
 case a single text file. Its purpose is to inform the REANA service
 about what files need to be downloaded upon the workflow completion
-when the user chooses to run the "download" command of the REANA client.
-* The ```environment``` in this case is the image of Ubuntu 18.04.
+when and if the user chooses to run the "download" command of the REANA client.
+* The ```environment``` in this case is the image of Ubuntu 18.04. This means that this
+example workflow will run in the corresponding container. Since the workflow in this case
+is a trivial shell operation, the exact flavor of Linux doesn't really matter.
 
 ## Hello World 2
-The file ```helloworld1.yaml``` contains an example of a REANA workflow
+The file ```helloworld2.yaml``` contains an example of a REANA workflow
 which is very similar to "Hello World 1", with the following differences:
 * The ```inputs``` section contains a reference to a directory. In this case,
 the client will upload the complete directory to the service.
-
+* The ```outputs``` section contains a reference to a directory. Similar to
+the previous example, this provides a handle to the REANA client to download
+the contents if requested by the user.
 
