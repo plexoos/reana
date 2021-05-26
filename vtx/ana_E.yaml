@@ -1,0 +1,16 @@
+version: 0.0.1
+inputs:
+  files:
+    - ./code/ana_E_reana.C
+    - /phenix/u/genki/go_to_work/data/ntuple/testvtxproduction/testvtxproduction_0000458969-0400.root
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'rootproject/root'
+        commands:
+          - cd code
+          - root -b testvtxproduction_0000458969-0400.root -q 'ana_E_reana.C' > out.txt
+outputs:
+  files:
+   - code/out.txt
