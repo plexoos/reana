@@ -57,7 +57,7 @@
   float x16m = gaus->GetParameter(1);
   float sig16m = gaus->GetParameter(2);
 
-  TCanvas *c1=new TCanvas("c1","canvas",1500,600);
+  /*   TCanvas *c1=new TCanvas("c1","canvas",1500,600);
   c1->Divide(5,2);
   c1_1->cd();
   h12p->Draw();
@@ -79,6 +79,7 @@
   h15m->Draw();
   c1_10->cd();
   h16m->Draw();
+  */
 
   cout<<"12p "<<x12p*10000<<" "<<sig12p*10000<<endl;
   cout<<"12m "<<x12m*10000<<" "<<sig12m*10000<<endl;
