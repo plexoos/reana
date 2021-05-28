@@ -7,11 +7,17 @@ workflow:
   type: serial
   specification:
     steps:
-#      - environment: 'rootproject/root'
-      - environment: 'phenixcollaboration/tools:sl7_root5'
+      - environment: 'phenixcollaboration/tools:phenix-i686-custom'
         commands:
           - root -b phenix/u/genki/go_to_work/data/ntuple/testvtxproduction/testvtxproduction_0000458969-0400.root -q 'code/ana_E_reana.C' > out.txt
           - date
 outputs:
   files:
    - out.txt
+   
+################################################
+# Environment options:
+# rootproject/root
+# phenixcollaboration/tools:sl7_root5
+# phenixcollaboration/tools:phenix-i686-custom
+#
