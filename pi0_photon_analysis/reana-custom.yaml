@@ -1,0 +1,17 @@
+version: 0.0.1
+inputs:
+  files:
+    - ./single_cluster.C
+    - data/ERTntup_gnt.root
+    - data/MBntup_gnt.root
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'phenixcollaboration/tools:phenix-i686-custom'
+        commands:
+          - mkdir -p results
+          - root -b -q 'single_cluster.C("position")' 'single_cluster.C("ecore")' 'single_cluster.C("chisq")'
+outputs:
+  files:
+   - results/test.txt
