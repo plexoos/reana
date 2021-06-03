@@ -10,7 +10,7 @@ image:
 This information will be updated to stay current.
 
 # What to run
-The most recent version of the REANA submission YAML fie is ```ana_E_mod.yam```.
+The most recent version of the REANA submission YAML fie is ```ana_E_mod.yaml```.
 Correspondingly, one can run something like
 ```bash
 reana-client run -f ana_E_mod.yaml -w vtx_test
