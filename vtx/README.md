@@ -16,6 +16,12 @@ Correspondingly, one can run something like
 reana-client run -f ana_E_mod.yaml -w vtx_test
 ```
 
+Currently the macro does not create any persistent images (e.g. PNG files)
+and only produces text output for test purposes. If images are needed,
+they can be created by modifying the macro, and then it is important to add
+the image files to the "files" section of the output in the REANA YAML file
+so they can be easily downlioaded by the client upon the job completion.
+
 # A small caveat
 
 ROOT5 executes this macro correctly but reports an error when existing, likely
