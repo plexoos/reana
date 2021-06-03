@@ -20,4 +20,4 @@ reana-client run -f ana_E_mod.yaml -w vtx_test
 ROOT5 executes this macro correctly but reports an error when existing, likely
 to a canvas issue. To suppress this immaterial error, we added ```date``` to
 the command schedule for execution so that the retirn code is always zero. This
-helps redice confusion when consulting the REANA Web interface
+helps reduce confusion when consulting the REANA Web interface
