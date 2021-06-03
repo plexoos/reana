@@ -1,0 +1,23 @@
+version: 0.0.1
+inputs:
+  files:
+    - ./code/ana_E_reana.C
+    - ./testvtxproduction_0000458969-0400.root
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'phenixcollaboration/tools:phenix-i686-clean'
+        commands:
+          - root -b testvtxproduction_0000458969-0400.root -q 'code/ana_E_reana.C' > out.txt; date
+
+outputs:
+  files:
+   - out.txt
+   
+################################################
+# Environment options:
+# rootproject/root
+# phenixcollaboration/tools:sl7_root5
+# phenixcollaboration/tools:phenix-i686-custom
+#
