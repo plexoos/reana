@@ -14,4 +14,7 @@ workflow:
           - root -b -q 'single_cluster.C("position")' 'single_cluster.C("ecore")' 'single_cluster.C("chisq")'
 outputs:
   files:
-   - results/test.txt
+   - results/ecore.png
+   - results/chisq.png
+   - results/position.png
+
