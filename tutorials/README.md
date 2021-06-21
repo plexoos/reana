@@ -6,6 +6,17 @@ materials presented here are general enough to be of a wider interest.
 Each REANA workflow in this series of examples is described in a separate
 YAML file so the description below is structured accordingly.
 
+## The REANA client
+
+For the purposes of this tutorial we assume that work is done
+on interactive nodes of the SDCC computing farm, i.e. one of
+the available "rcas" machines.
+
+Activate the client package by using the command
+```csh
+source /direct/phenix+u/mxmp/.virtualenvs/reana/bin/activate.csh
+```
+
 ## Hello World 1
 
 The file ```helloworld1.yaml``` contains a trivial example of a REANA workflow.
