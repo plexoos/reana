@@ -3,7 +3,8 @@ inputs:
   directories:
     - ./hello_world_input
   parameters:
-    outputfile: results/hello_world_output.txt
+    outputfile1: results/hello_world_output1.txt
+    outputfile2: results/hello_world_output2.txt
 workflow:
   type: serial
   specification:
@@ -11,9 +12,10 @@ workflow:
       - environment: 'ubuntu:18.04'
         commands:
         - mkdir -p results
-        - ls -l ./hello_world_input > $outputfile
-        - date >> $outputfile
-        - wc -c ./hello_world_input/hello_world.txt >> $outputfile
+        - ls -l ./hello_world_input > $outputfile1
+        - date >> $outputfile1
+        - wc -c ./hello_world_input/hello_world.txt > $outputfile2
 outputs:
   files:
-    - results/hello_world_output.txt
+    - results/hello_world_output1.txt
+    - results/hello_world_output2.txt
