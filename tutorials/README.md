@@ -23,6 +23,8 @@ reana-client --help
 ```
 This will produce a very helpful screen with information about
 various options and commands that can be used with the client.
+It is a good idea to read it at least once, carefully.
+
 If this worked, you can now proceed to check connectivity with the
 REANA server. To do that, you need to set up two environment variables,
 one with the secret token to authenticate yourself for the server,
@@ -33,6 +35,25 @@ setenv REANA_ACCESS_TOKEN _your_token_
 setenv REANA_SERVER_URL https://kubmaster01.sdcc.bnl.gov:30443
 # Ping the server
 reana-client ping
+```
+
+## Running a workflow
+In the example below the YAML file can be any file that contains
+a workflow description of your choice. If the file is not specified
+with the ```-f``` option, the client will attempt to find the default
+file ```reana.yaml```. The ```-w``` option allows the user to assign
+descriptive names to their workflows. If no such option is provided
+the client will default to the name "workflow".
+```csh
+reana-client run -f my_workflow_file.yaml -w my_custom_workflow_name
+```
+If the same workflow is submitted under the same name multiple times
+the server will assign serial numbers automatically. If you created
+a workflow named "test" three times, the respective objects can be
+access by the REANA client under the names __test.1, test.2, test.3__.
+The following command will list all the worflows created by the user:
+```csh
+reana-client list
 ```
 
 
