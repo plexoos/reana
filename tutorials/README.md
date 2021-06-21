@@ -17,6 +17,25 @@ Activate the client package by using the command
 source /direct/phenix+u/mxmp/.virtualenvs/reana/bin/activate.csh
 ```
 
+Now you can check if the client application is now available to you:
+```csh
+reana-client --help
+```
+This will produce a very helpful screen with information about
+various options and commands that can be used with the client.
+If this worked, you can now proceed to check connectivity with the
+REANA server. To do that, you need to set up two environment variables,
+one with the secret token to authenticate yourself for the server,
+and the other with the server URL so the client knows what to connect to.
+```csh
+# Set the variables:
+setenv REANA_ACCESS_TOKEN yTCcYZNziLdXTxC6qQKilQ
+setenv REANA_SERVER_URL https://kubmaster01.sdcc.bnl.gov:30443
+# Ping ther server
+reana-client ping
+```
+
+
 ## Hello World 1
 
 The file ```helloworld1.yaml``` contains a trivial example of a REANA workflow.
