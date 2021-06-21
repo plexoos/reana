@@ -29,9 +29,9 @@ one with the secret token to authenticate yourself for the server,
 and the other with the server URL so the client knows what to connect to.
 ```csh
 # Set the variables:
-setenv REANA_ACCESS_TOKEN yTCcYZNziLdXTxC6qQKilQ
+setenv REANA_ACCESS_TOKEN _your_token_
 setenv REANA_SERVER_URL https://kubmaster01.sdcc.bnl.gov:30443
-# Ping ther server
+# Ping the server
 reana-client ping
 ```
 
