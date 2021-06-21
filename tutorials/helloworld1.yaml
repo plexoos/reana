@@ -9,7 +9,7 @@ workflow:
       - environment: 'ubuntu:18.04'
         commands:
         - echo 'Hello World!' > helloworld1_ouput.txt
-        - cat hello_world.txt >> helloworld1_ouput.txt
+        - cat ./hello_world_input/hello_world.txt >> helloworld1_ouput.txt
 outputs:
   files:
     - helloworld1_ouput.txt
