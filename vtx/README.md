@@ -25,6 +25,6 @@ so they can be easily downlioaded by the client upon the job completion.
 # A small caveat
 
 ROOT5 executes this macro correctly but reports an error when existing, likely
-to a canvas issue. To suppress this immaterial error, we added ```date``` to
+due to a canvas issue. To suppress this unimportant error, we added ```date``` to
 the command schedule for execution so that the retirn code is always zero. This
 helps reduce confusion when consulting the REANA Web interface
