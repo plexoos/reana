@@ -18,7 +18,7 @@ workflow:
         - ls -l ./hello_world_input > $outputfile1
         - date >> $outputfile1
         - wc -c ./hello_world_input/hello_world.txt > $outputfile2
-        - echo $PASSWORD >> $outputfile2
+        - pwd >> $outputfile2
 outputs:
   files:
     - results/hello_world_output1.txt
