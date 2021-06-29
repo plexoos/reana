@@ -1,6 +1,7 @@
 version: 0.0.1
 inputs:
-# The whole directory will be staged in:
+# If the "directories" attribute is present, the whole directories
+# listed here will be staged in. In our example, it's still just one file.
   directories:
     - ./hello_world_input
 # We can define parameters for convenience of reference
@@ -17,6 +18,7 @@ workflow:
         - ls -l ./hello_world_input > $outputfile1
         - date >> $outputfile1
         - wc -c ./hello_world_input/hello_world.txt > $outputfile2
+        - echo $PASSWORD >> $outputfile2
 outputs:
   files:
     - results/hello_world_output1.txt
