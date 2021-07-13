@@ -1,10 +1,7 @@
 version: 0.0.1
 inputs:
-  parameters:
-    odbc: 
   files:
     - /afs/rhic.bnl.gov/phenix/etc/odbc.ini
-#    - /afs/rhic.bnl.gov/phenix/etc/odbc.ini.phnxdbrcf2.orig
     - ./pisa.csh
     - ./DchCalibration.Mc
     - ./DchEfficiency.Real
