@@ -12,4 +12,4 @@ setenv LD_LIBRARY_PATH .:$LD_LIBRARY_PATH
 setenv  ODBCINI ${PWD}/afs/rhic.bnl.gov/phenix/etc/odbc.ini
 setenv PG_PHENIX_DBNAME Phenix_phnxdbrcf2_C
 echo '---------------------------------------'
-
+root -b -q prod_output.C

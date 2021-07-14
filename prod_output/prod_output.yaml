@@ -17,9 +17,11 @@ workflow:
       - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
         commands:
         - chmod +x ./prod_output.csh
-        - ./prod_output.csh > output.txt
         - mv ./phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/*/*.root .
-        - ls >> output.txt
+        - rm -fr ./phenix
+        - ls > output.txt
+        - ./prod_output.csh >> output.txt
 outputs:
   files:
     - output.txt
+    - test_459208.root
