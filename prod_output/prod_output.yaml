@@ -2,6 +2,11 @@ version: 0.0.1
 inputs:
   files:
     - /afs/rhic.bnl.gov/phenix/etc/odbc.ini
+    - ./prod_output.csh
+    - /phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/CNT_MB/CNT_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root
+    - /phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/DST_SVX_MB/DST_SVX_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root
+    - /phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/DST_EVE_MB/DST_EVE_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root
+
 workflow:
   type: serial
   specification:
@@ -10,6 +15,8 @@ workflow:
         commands:
         - chmod +x ./prod_output.csh
         - ./prod_output.csh > output.txt
+        - mv /phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/*/*.root .
+        - ls >> output.txt
 outputs:
   files:
     - output.txt
