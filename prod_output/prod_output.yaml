@@ -15,7 +15,7 @@ workflow:
         commands:
         - chmod +x ./prod_output.csh
         - ./prod_output.csh > output.txt
-        - mv /phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/*/*.root .
+        - mv ./phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/*/*.root .
         - ls >> output.txt
 outputs:
   files:
