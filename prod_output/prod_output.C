@@ -1,7 +1,7 @@
 prod_output(int nevents = 10000,
-	    const char *dstFile1 = "data/DST_EVE_MB/DST_EVE_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
-	    const char *dstFile2 = "data/CNT_MB/CNT_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
-	    const char *dstFile3 = "data/DST_SVX_MB/DST_SVX_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
+	    const char *dstFile1 = "DST_EVE_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
+	    const char *dstFile2 = "CNT_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
+	    const char *dstFile3 = "DST_SVX_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
 	    const char *outfile = "test_459208.root"
 	    )
 {
