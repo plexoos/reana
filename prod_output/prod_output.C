@@ -1,9 +1,9 @@
-analyze_run16_official_prod_output(int nevents = 10000,
-                               const char *dstFile1 = "data/DST_EVE_MB/DST_EVE_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
-                               const char *dstFile2 = "data/CNT_MB/CNT_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
-                               const char *dstFile3 = "data/DST_SVX_MB/DST_SVX_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
-                               const char *outfile = "test_459208.root"
-                              )
+prod_output(int nevents = 10000,
+	    const char *dstFile1 = "data/DST_EVE_MB/DST_EVE_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
+	    const char *dstFile2 = "data/CNT_MB/CNT_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
+	    const char *dstFile3 = "data/DST_SVX_MB/DST_SVX_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root",
+	    const char *outfile = "test_459208.root"
+	    )
 {
   gROOT->SetBatch(true);
 
@@ -15,7 +15,6 @@ analyze_run16_official_prod_output(int nevents = 10000,
   gSystem->Load("libsimreco.so");
   gSystem->Load("librecal.so");
 
-  // gSystem->Load("libRun14EventTrigger.so");
   gSystem->Load("libAnaAlignmentProd.so");
   gSystem->Load("libRun11VTXana.so");
 
@@ -27,15 +26,8 @@ analyze_run16_official_prod_output(int nevents = 10000,
   MasterRecalibratorManager *mr = new MasterRecalibratorManager();
   se->registerSubsystem(mr);
 
-
-  //Run14EventTrigger *trig = new Run14EventTrigger();
-  //trig->Verbosity(1);
-  //trig->set_bbczcut(10);
-  //se->registerSubsystem(trig);
-
   SubsysReco *svxtest = new AnaAlignmentProd(outfile);
   se->registerSubsystem(svxtest);
-
 
   Fun4AllInputManager *in1 = new Fun4AllDstInputManager("DSTin1", "DST");
   in1->Verbosity(0);
@@ -58,12 +50,6 @@ analyze_run16_official_prod_output(int nevents = 10000,
 
   se->End();
 
-  //Fun4AllHistoManager *hm;
-  //hm = se->getHistoManager("Run11AuAuSvxEventHists");
-  //hm->dumpHistos(histfile);
-
   cout << "Analysis finished " << endl;
-
-
 
 }
