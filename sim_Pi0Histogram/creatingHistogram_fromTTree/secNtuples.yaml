@@ -1,0 +1,29 @@
+version: 0.0.1
+inputs:
+  files:
+    - /afs/rhic.bnl.gov/phenix/etc/odbc.ini
+    - ./pisa.csh
+    - ./DchCalibration.Mc
+    - ./DchEfficiency.Real
+    - ./DchAlwaysDead.dat
+    - ./crk_cabling_vrdc.txt
+    - ./fieldIntegral.dat
+    - ./Sim3D++.root
+    - ./pisafile.dat.cZ
+    - ./pisaToDST_IOManager.C
+    - ./Fun4Muons_Pisa.C
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
+        commands:
+        - chmod +x ./pisa.csh
+        - ./pisa.csh > output.txt
+outputs:
+  files:
+    - output.txt
+    - singlemuon_pdst.root
+    - dimuon_pdst.root
+    - mwg.root
+    - Fun4AllServerHISTOS-0000365313.root

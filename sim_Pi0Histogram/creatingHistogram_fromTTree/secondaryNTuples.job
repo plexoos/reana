@@ -1,0 +1,15 @@
+Executable      = /bin/sh 
+Universe        = vanilla
+Priority        = +20
+Input           = /dev/null
+GetEnv          = True
+Log		 = /tmp/nivram/log/secNTuples$(Process).log
+
+Output		  = $ENV(PWD)/out/secNTuples_output$(Process).out
+Error 		  = $ENV(PWD)/error/secNTuples_error$(Process).err		  
+Initialdir      = $ENV(PWD)
++Job_Type       = "cas"
+Notification    = Error
+
+Arguments       = secondaryNTuples.csh $(Process)
+Queue 1
