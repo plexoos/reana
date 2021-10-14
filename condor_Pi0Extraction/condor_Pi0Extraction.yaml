@@ -3,7 +3,8 @@ inputs:
   directories:
     - ./raw_taxiData
   files:
-    - ./condor_Pi0Extraction.cc
+#- ./condor_Pi0Extraction.cc
+    - ./setup_env.csh
 workflow:
   type: serial
   specification:
@@ -11,7 +12,9 @@ workflow:
       - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
         commands:
         - ls -l > output.txt
-        - root -l -b -q 'condor_Pi0Extraction.cc("MB", "PbSc", 4,5)'
+        - source ./setup_env.csh
+        - env >> output.txt
+#        - root -l -b -q 'condor_Pi0Extraction.cc("MB", "PbSc", 4,5)'
 outputs:
   files:
     - output.txt
