@@ -1,0 +1,27 @@
+version: 0.0.1
+inputs:
+  files:
+    - /afs/rhic.bnl.gov/phenix/etc/odbc.ini
+    - ./prod_output.csh
+    - ./prod_output.C
+    - ./libAnaAlignmentProd.so
+    - ./libRun11VTXana.so
+    - /phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/CNT_MB/CNT_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root
+    - /phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/DST_SVX_MB/DST_SVX_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root
+    - /phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/DST_EVE_MB/DST_EVE_MB_run16AuAu_200GeV_CA_pro111-0000459208-9000.root
+
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
+        commands:
+        - chmod +x ./prod_output.csh
+        - mv ./phenix/crs/agg/run16/run16AuAu_200GeV_CA_pro111_agg/*/*.root .
+        - rm -fr ./phenix
+        - ls > output.txt
+        - ./prod_output.csh >> output.txt
+outputs:
+  files:
+    - output.txt
+    - test_459208.root
