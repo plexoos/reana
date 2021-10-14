@@ -1,0 +1,23 @@
+version: 0.0.1
+inputs:
+  files:
+    - /gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root
+    - ./secNtuples.csh
+    - ./secondaryNTuples.csh
+    - ./Pi0EmbedFiles.C
+    - ./Pi0EmbedFiles.h
+    - ./DeadWarnRun16.txt
+    - ./timingDeadWarnRun16.txt
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
+        commands:
+        - mv gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root pi0_dAuMB.root
+        - chmod +x ./secNtuples.csh
+        - ./secNtuples.csh > output.txt
+outputs:
+  files:
+    - output.txt
+
