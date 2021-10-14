@@ -1,22 +1,17 @@
 version: 0.0.1
 inputs:
+  directories:
+    - ./raw_taxiData
   files:
-    - /gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root
-    - ./secNtuples.csh
-    - ./secondaryNTuples.csh
-    - ./Pi0EmbedFiles.C
-    - ./Pi0EmbedFiles.h
-    - ./DeadWarnRun16.txt
-    - ./timingDeadWarnRun16.txt
+    - ./condor_Pi0Extraction.cc
 workflow:
   type: serial
   specification:
     steps:
       - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
         commands:
-        - mv gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root pi0_dAuMB.root
-        - chmod +x ./secNtuples.csh
-        - ./secNtuples.csh > output.txt
+        - ls -l > output.txt
+        - root -l -b -q 'condor_Pi0Extraction.cc("MB", "PbSc", 4,5)'
 outputs:
   files:
     - output.txt
