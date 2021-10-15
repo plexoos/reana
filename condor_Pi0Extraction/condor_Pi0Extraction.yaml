@@ -1,6 +1,6 @@
 version: 0.0.1
 inputs:
-  directories:
+#  directories:
 #    - ./raw_taxiData
   files:
 #- ./condor_Pi0Extraction.cc
