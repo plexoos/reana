@@ -13,6 +13,8 @@ workflow:
     steps:
       - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
         commands:
+        - mkdir -p output_plots/pdf output_plots/txt output_plots/root
+        - cd output_plots
         - chmod +x ./driver.csh
         - ls -l > output.txt
         - ./driver.csh >> output.txt
