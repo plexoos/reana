@@ -1,7 +1,7 @@
 version: 0.0.1
 inputs:
-#  directories:
-#    - ./raw_taxiData
+  directories:
+    - ./raw_taxiData
   files:
     - ./condor_Pi0Extraction.cc
     - ./universal.h
@@ -18,8 +18,6 @@ workflow:
         - ./driver.csh >> output.txt
         - echo '----------------------' >> output.txt
 
- 
-#        - root -l -b -q 'condor_Pi0Extraction.cc("MB", "PbSc", 4,5)'
 outputs:
   files:
     - output.txt
