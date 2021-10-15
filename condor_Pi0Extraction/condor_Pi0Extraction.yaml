@@ -1,19 +1,21 @@
 version: 0.0.1
 inputs:
   directories:
-    - ./raw_taxiData
+#    - ./raw_taxiData
   files:
 #- ./condor_Pi0Extraction.cc
     - ./setup_env.csh
+    - ./driver.csh
 workflow:
   type: serial
   specification:
     steps:
       - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
         commands:
+        - chmod +x ./driver.csh
         - ls -l > output.txt
-        - source ./setup_env.csh
-        - env >> output.txt
+        - ./driver.csh
+ 
 #        - root -l -b -q 'condor_Pi0Extraction.cc("MB", "PbSc", 4,5)'
 outputs:
   files:
