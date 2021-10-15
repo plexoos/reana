@@ -15,9 +15,9 @@ workflow:
         commands:
         - chmod +x ./driver.csh
         - ls -l > output.txt
-        - ./driver.csh
+        - ./driver.csh >> output.txt
         - echo '----------------------' >> output.txt
-        - which root >> output.txt
+
  
 #        - root -l -b -q 'condor_Pi0Extraction.cc("MB", "PbSc", 4,5)'
 outputs:
