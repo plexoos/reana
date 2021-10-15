@@ -3,7 +3,8 @@ inputs:
 #  directories:
 #    - ./raw_taxiData
   files:
-#- ./condor_Pi0Extraction.cc
+    - ./condor_Pi0Extraction.cc
+    - ./universal.h
     - ./setup_env.csh
     - ./driver.csh
 workflow:
@@ -15,6 +16,8 @@ workflow:
         - chmod +x ./driver.csh
         - ls -l > output.txt
         - ./driver.csh
+        - echo '----------------------' >> output.txt
+        - which root >> output.txt
  
 #        - root -l -b -q 'condor_Pi0Extraction.cc("MB", "PbSc", 4,5)'
 outputs:
