@@ -15,8 +15,9 @@ workflow:
         commands:
         - mkdir output_plots
         - mkdir -p output_plots/pdf output_plots/txt output_plots/root
+        - cd output_plots; ls -l > output.txt
         - chmod +x ./driver.csh
-        - ls -l > output.txt
+        - ls -l >> output.txt
         - ./driver.csh >> output.txt
 
 outputs:
