@@ -2,6 +2,7 @@ version: 0.0.1
 inputs:
   directories:
     - ./raw_taxiData
+    - ./sim_Pi0Histogram
   files:
     - ./pi0extraction.cc
     - ./WGRatio.cc
