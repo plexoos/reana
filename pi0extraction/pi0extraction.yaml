@@ -4,6 +4,9 @@ inputs:
     - ./raw_taxiData
   files:
     - ./pi0extraction.cc
+    - ./WGRatio.cc
+    - ./generationRM_Pi0.cc
+    - ./VConvolution_Pi0.cc
     - ./universal.h
     - ./setup_env.csh
     - ./driver.csh
