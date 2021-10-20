@@ -17,21 +17,20 @@ double l_lim2 = 0.18;
 double u_lim2 = 0.35;
 
 
-Double_t fline(Double_t *x, Double_t *par)
-{
-  if(reject&&x[0]>=u_lim2&&x[0]<=l_lim1){
-    TF1::RejectPoint();
-    return 0;
-  }
+Double_t fline(Double_t *x, Double_t *par) {
+	if(reject&&x[0]>=u_lim2&&x[0]<=l_lim1) {
+    	TF1::RejectPoint();
+    	return 0;
+	}
 
-  if (num_par==2)
-    return (par[0]+par[1]*x[0]);
-  else if (num_par==4)
-    return (par[0] +(par[1]*x[0]) + (par[2]*x[0]*x[0])+ (par[3]*x[0]*x[0]*x[0] ) );
-  else if (num_par==1)
-    return (par[0]);
- else
-   return (par[0] +(par[1]*x[0]) + (par[2]*x[0]*x[0]));
+	if (num_par==2)
+    	return (par[0]+par[1]*x[0]);
+  	else if (num_par==4)
+    	return (par[0] +(par[1]*x[0]) + (par[2]*x[0]*x[0])+ (par[3]*x[0]*x[0]*x[0] ) );
+  	else if (num_par==1)
+    	return (par[0]);
+ 	else
+   		return (par[0] +(par[1]*x[0]) + (par[2]*x[0]*x[0]));
 }
 
 TLine *line1 = new TLine(0.11,0,0.11,5e5);
@@ -41,12 +40,9 @@ line2->SetLineColor(7);
 
 
 
-void condor_Pi0Extraction(char *trigger, char *type, int startCC,int stopCC )
+void pi0extraction(char *trigger, char *type, int startCC,int stopCC )
  {
-   
-   		
-
-
+    
   const int NCE = 5;  // number of centrality bins
   const int NPT = 28; // number of pT bins
   const int NPID = 2; //  number of  pid cuts : no pid; chi2;   
