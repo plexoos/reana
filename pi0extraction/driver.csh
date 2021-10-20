@@ -2,12 +2,12 @@
 source ./setup_env.csh
 
 echo '********************************************************************'
-echo root -l -b -q 'pi0extraction.cc("MB", "PbSc", 4,5)'
+root -l -b -q 'pi0extraction.cc("MB", "PbSc", 4,5)'
 echo '********************************************************************'
 
-#echo root -l -b -q 'pi0extraction.cc("ERT", "PbSc", 4,5)'
-#root -l -b -q 'pi0extraction.cc("ERT", "PbSc", 4,5)'
-#echo '********************************************************************'
+echo root -l -b -q 'pi0extraction.cc("ERT", "PbSc", 4,5)'
+root -l -b -q 'pi0extraction.cc("ERT", "PbSc", 4,5)'
+echo '********************************************************************'
 
 #echo root -l -b -q 'WGRatio.cc'
 #root -l -b -q 'WGRatio.cc'
