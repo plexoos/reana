@@ -14,14 +14,13 @@ workflow:
       - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
         commands:
         - chmod +x ./driver.csh
-        - ./driver.csh > output.txt
         - ln -s gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root pi0_dAuMB.root
-        - ls -l  >> output.txt
+        - ls -l > output.txt
+        - echo '--------------' >> output.txt
         - ls -l pi0_dAuMB.root >> output.txt
-        - echo 'before root' >> output.txt
-        - which root >> output.txt
-        - root -l -b << ./pi0run.script
-        - echo 'AFTER----------' >> output.txt
+        - echo '-------------- before root' >> output.txt
+        - ./driver.csh >> output.txt
+        - echo 'AFTER ----------' >> output.txt
         - ls -l  >> output.txt
 outputs:
   files:
