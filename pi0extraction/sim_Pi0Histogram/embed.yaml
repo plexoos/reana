@@ -4,6 +4,8 @@ inputs:
     - /gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root
     - ./driver.csh
     - ./setup_env.csh
+    - timingDeadWarnRun16.txt
+    - DeadWarnRun16.txt
 workflow:
   type: serial
   specification:
@@ -11,9 +13,10 @@ workflow:
       - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
         commands:
         - chmod +x ./driver.csh
-        - ls -l > output.txt
-        - ./driver.csh >> output.txt
-        - ls -l gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root >> output.txt
+        - ./driver.csh > output.txt
+        - ln -s gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root pi0_dAuMB.root
+        - ls -l * >> output.txt
+        - ls -lL pi0_dAuMB.root >> output.txt
 
 outputs:
   files:
