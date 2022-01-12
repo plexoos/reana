@@ -5,7 +5,10 @@ echo '********************************************************************'
 which root
 root -b <<EOF
 1+1
+
+.L Pi0EmbedFiles.C
+Pi0EmbedFiles t
+t
 EOF
-#.L Pi0EmbedFiles.C
-#Pi0EmbedFiles t
+
 #t.Loop()
