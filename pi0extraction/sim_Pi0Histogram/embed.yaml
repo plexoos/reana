@@ -7,6 +7,8 @@ inputs:
     - timingDeadWarnRun16.txt
     - DeadWarnRun16.txt
     - pi0run.script
+    - Pi0EmbedFiles.C
+    - Pi0EmbedFiles.h
 workflow:
   type: serial
   specification:
