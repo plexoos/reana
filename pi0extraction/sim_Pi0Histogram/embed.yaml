@@ -1,7 +1,9 @@
 version: 0.0.1
 inputs:
+  directories:
+    - /gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle
   files:
-    - /gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root
+#    - /gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root
     - ./driver.csh
     - ./setup_env.csh
     - timingDeadWarnRun16.txt
