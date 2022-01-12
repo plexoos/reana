@@ -3,4 +3,9 @@ source ./setup_env.csh
 
 echo '********************************************************************'
 which root >> output.txt
-cat ./pi0run.script | root -l -b
+
+root -l -b <<EOF
+.L Pi0EmbedFiles.C
+Pi0EmbedFiles t
+t.Loop()
+EOF
