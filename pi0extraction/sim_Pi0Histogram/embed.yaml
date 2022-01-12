@@ -6,6 +6,7 @@ inputs:
     - ./setup_env.csh
     - timingDeadWarnRun16.txt
     - DeadWarnRun16.txt
+    - pi0run.script
 workflow:
   type: serial
   specification:
@@ -15,9 +16,11 @@ workflow:
         - chmod +x ./driver.csh
         - ./driver.csh > output.txt
         - ln -s gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root pi0_dAuMB.root
-        - ls -l * >> output.txt
+        - ls -l  >> output.txt
         - ls -lL pi0_dAuMB.root >> output.txt
-
+        - cat pi0run.script | root -l -b
+        - echo 'AFTER----------' >> output.txt
+        - ls -l  >> output.txt
 outputs:
   files:
     - output.txt
