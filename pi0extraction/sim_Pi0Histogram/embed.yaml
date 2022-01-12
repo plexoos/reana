@@ -19,7 +19,7 @@ workflow:
         commands:
         - chmod +x ./driver.csh
         - mv gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root pi0_dAuMB.root
-        - rm -fr gpfs
+#        - rm -fr gpfs
         - ls -l > output.txt
         - echo '--------------' >> output.txt
         - ls -l pi0_dAuMB.root >> output.txt
