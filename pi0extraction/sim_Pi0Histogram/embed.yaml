@@ -20,7 +20,7 @@ workflow:
         - ls -l pi0_dAuMB.root >> output.txt
         - echo 'before root' >> output.txt
         - which root >> output.txt
-        - echo '.q' | root -l -b
+        - root -l -b << ./pi0run.script
         - echo 'AFTER----------' >> output.txt
         - ls -l  >> output.txt
 outputs:
