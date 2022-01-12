@@ -2,11 +2,10 @@
 source ./setup_env.csh
 
 echo '********************************************************************'
-which root >> output.txt
-
-root -b <<EOF >> output.txt
+which root
+root -b <<EOF
 1+1
 EOF
 #.L Pi0EmbedFiles.C
-##Pi0EmbedFiles t
-t.Loop()
+#Pi0EmbedFiles t
+#t.Loop()

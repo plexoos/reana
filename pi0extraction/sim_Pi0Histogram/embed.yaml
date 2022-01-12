@@ -20,7 +20,7 @@ workflow:
         - echo '--------------' >> output.txt
         - ls -l pi0_dAuMB.root >> output.txt
         - echo '-------------- before root' >> output.txt
-        - ./driver.csh
+        - ./driver.csh >> output.txt
         - echo 'AFTER ----------' >> output.txt
         - ls -l  >> output.txt
 outputs:
