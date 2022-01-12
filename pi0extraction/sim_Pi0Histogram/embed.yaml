@@ -3,6 +3,7 @@ inputs:
   files:
     - /gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root
     - ./driver.csh
+    - ./setup_env.csh
 workflow:
   type: serial
   specification:
