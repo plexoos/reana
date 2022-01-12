@@ -17,8 +17,9 @@ workflow:
         - ./driver.csh > output.txt
         - ln -s gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root pi0_dAuMB.root
         - ls -l  >> output.txt
-        - ls -lL pi0_dAuMB.root >> output.txt
-        - cat pi0run.script | root -l -b
+        - ls -l pi0_dAuMB.root >> output.txt
+        - echo 'before root' >> output.txt
+        - cat ./pi0run.script | root -l -b
         - echo 'AFTER----------' >> output.txt
         - ls -l  >> output.txt
 outputs:
