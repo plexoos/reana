@@ -1,0 +1,14 @@
+version: 0.0.1
+inputs:
+  files:
+    - ./REANA.md
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
+        commands:
+        - echo 'Hello World' > output.txt
+outputs:
+  files:
+    - output.txt
