@@ -13,7 +13,7 @@ inputs:
     - pi0run.script
     - Pi0EmbedFiles.C
     - Pi0EmbedFiles.h
-parameters:
+  parameters:
     myparam: myvalue
     datafolder: '/gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/'
 workflow:

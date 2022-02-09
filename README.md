@@ -1,5 +1,7 @@
 # REANA - PHENIX Collaboration Use Cases
 
+## This repository
+
 This repository contains samples of PHENIX analyses
 formulated to run on the REANA platform, and miscellaneous
 examples and tutorials.
@@ -9,3 +11,11 @@ examples and tutorials.
 * ```rhic_sl7_test``` - validation of images produced by the BNL SDCC.
 * ```tutorials``` - various tutorials, originally designed for the PHENIX School 2021.
 * ```vtx``` - a prototype VTX analysis, work in progress
+
+
+## Useful REANA commands
+
+```bash
+reana-client delete --include-all-runs  --include-workspace --include-records -w basic
+```
+
