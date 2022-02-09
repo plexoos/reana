@@ -1,9 +1,11 @@
+#
 version: 0.0.1
 inputs:
   files:
     - ./README.md
-parameters:
+  parameters:
     myparam: 'myvalue'
+#
 workflow:
   type: serial
   specification:
@@ -12,6 +14,7 @@ workflow:
         commands:
         - echo 'Hello World' > output.txt
         - echo $myparam >> output.txt
+#
 outputs:
   files:
     - output.txt
