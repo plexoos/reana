@@ -14,15 +14,16 @@ inputs:
     - Pi0EmbedFiles.C
     - Pi0EmbedFiles.h
   parameters:
-    myparam: myvalue
-    datafolder: '/gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/'
+    arr: '1 2 3'
+    # datafolder: '/gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/'
 workflow:
   type: serial
   specification:
     steps:
       - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
         commands:
-        - echo 'myparam' $myparam $datafolder > output.txt
+        - echo 'arr' $arr > output.txt
+        - echo 'foreach i ( $arr )\n echo $i\n end' | tcsh
 #        - chmod +x ./driver.csh
 #        - mv gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_0.root pi0_dAuMB.root
 #        - rm -fr gpfs
