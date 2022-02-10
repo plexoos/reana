@@ -1,0 +1,28 @@
+version: 0.0.1
+inputs:
+  directories:
+    - /gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle
+  files:
+    - ./driver.csh
+    - ./setup_env.csh
+    - timingDeadWarnRun16.txt
+    - DeadWarnRun16.txt
+    - pi0run.script
+    - Pi0EmbedFiles.C
+    - Pi0EmbedFiles.h
+  parameters:
+    numfiles: 60
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
+        commands:
+        - echo 'Starting calculation for ' $numfiles 'files' > output.txt
+        - chmod +x ./driver.csh
+        - ./driver.csh $numfiles  >> output.txt
+        - ls -l  >> output.txt
+outputs:
+  files:
+    - output.txt
+    - embedPi0dAu.tar
