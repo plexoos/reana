@@ -2,7 +2,7 @@
 source ./setup_env.csh
 
 foreach i (`seq 0 1 $1`)
-    ln -s gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/test/simPi0_$i.root pi0_dAuMB.root
+    ln -s gpfs/mnt/gpfs02/phenix/data_preservation/phnxreco/emcal/Pi0/middle/simPi0_$i.root pi0_dAuMB.root
     echo File: $i
     ls -l pi0_dAuMB.root
     cat pi0run.script | root -b
