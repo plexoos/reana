@@ -19,4 +19,6 @@ workflow:
 outputs:
   files:
     - output.txt
+    - Pion_RM.root
+    
 

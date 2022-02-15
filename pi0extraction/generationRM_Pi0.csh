@@ -7,8 +7,8 @@ which haddPhenix
 haddPhenix EmbedPi0dAu.root EmbedPi0dAu_*
 echo '********************************************************************'
 
-#echo root -l -b -q 'generationRM_Pi0.C'
-#root -l -b -q 'generationRM_Pi0.C'
+echo Will run: root -l -b -q 'generationRM_Pi0.C'
+root -l -b -q 'generationRM_Pi0.C'
 
 echo '********************************************************************'
 
