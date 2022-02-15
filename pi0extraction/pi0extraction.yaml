@@ -5,7 +5,7 @@ inputs:
 #    - ./sim_Pi0Histogram
   files:
     - ./pi0extraction.C
-#    - ./WGRatio.cc
+    - ./WGRatio.C
 #    - ./VConvolution_Pi0.cc
     - ./universal.h
     - ./setup_env.csh

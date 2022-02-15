@@ -12,14 +12,6 @@ echo 'Done ********************************************************************'
 #echo root -l -b -q 'WGRatio.cc'
 #root -l -b -q 'WGRatio.cc'
 
-
-# Migrated into a separate workflow
-# echo '********************************************************************'
-# echo root -l -b -q 'generationRM_Pi0.cc'
-# root -l -b -q 'generationRM_Pi0.cc'
-
-################################
-
 # echo '********************************************************************'
 #echo root -l -b -q 'VConvolution_Pi0.cc'
 #root -l -b -q 'VConvolution_Pi0.cc'
