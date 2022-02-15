@@ -1,26 +1,23 @@
 version: 0.0.1
 inputs:
   directories:
-    - ./raw_taxiData
+    - ./output_plots
   files:
-    - ./pi0extraction.C
-    - ./WGRatio.C
-    - ./universal.h
+    - ./inputTrialFunction_Pi0.txt
     - ./setup_env.csh
-    - ./pi0extraction.csh
+    - ./VConvolution_Pi0.C
+    - ./VConvolution_Pi0.csh
 workflow:
   type: serial
   specification:
     steps:
       - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
         commands:
-        - mkdir -p output_plots/pdf output_plots/txt output_plots/root
-        - chmod +x ./pi0extraction.csh
+        - chmod +x ./VConvolution_Pi0.csh
         - ls -l > output.txt
-        - ./pi0extraction.csh >> output.txt
+        - ./VConvolution_Pi0.csh >> output.txt
         - ls -l >> output.txt
 
 outputs:
   files:
     - output.txt
-
