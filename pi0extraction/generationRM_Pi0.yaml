@@ -13,8 +13,6 @@ workflow:
         - tar xvf embedPi0dAu.tar
         - chmod +x ./generationRM_Pi0.csh
         - ls -l > output.txt
-        - addPhenix EmbedPi0dAu.root EmbedPi0dAu_*
-        - ls -l >> output.txt
 
 outputs:
   files:
