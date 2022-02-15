@@ -12,7 +12,8 @@ workflow:
         commands:
         - tar xvf embedPi0dAu.tar
         - chmod +x ./generationRM_Pi0.csh
-        - ls -l > output.txt
+        - ./generationRM_Pi0.csh > output.txt
+        - ls -l >> output.txt
 
 outputs:
   files:
