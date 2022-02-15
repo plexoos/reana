@@ -1,7 +1,13 @@
-// this code extracts the yield of Pi0 in every Pt for various classification of centrality, type of sectors, tof, and PID cut. This does not make the plot for yeild. it only creates a bunch of text files from which yield is plotted. 
+// Adaption of the original code by Niv Ram, by M.Potekin,
+// for integration into REANA workflows.
 
+// this code extracts the yield of Pi0 in every Pt
+// for various classification of centrality, type of sectors, tof, and PID cut.
+// This does not make the plot for yeild.
+// It only creates a bunch of text files from which yield is plotted. 
 
 #include "universal.h"
+
 const int n =4;
 
 using namespace std;

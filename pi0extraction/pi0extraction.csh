@@ -11,8 +11,8 @@ root -l -b -q 'pi0extraction.cc("ERT", "PbSc", 4,5)'
 
 echo '********************************************************************'
 
-echo root -l -b -q 'WGRatio.cc'
-root -l -b -q 'WGRatio.cc'
+#echo root -l -b -q 'WGRatio.cc'
+#root -l -b -q 'WGRatio.cc'
 
 
 # Migrated into a separate workflow

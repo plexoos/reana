@@ -1,20 +1,28 @@
 /**
-The overall objective of this code is to get corrected Pi0 spectrum, given a raw Pi0 spectrum and a Response matrix from the simulation. 
+
+-mxp- This is an adaptaion of the original code by Niv Ram, by M.Potekhin,
+for integration into REANA workflows. The macro reads Pion_RM.root file.
+
+The overall objective of this code is to get corrected Pi0 spectrum,
+given a raw Pi0 spectrum and a Response matrix from the simulation.
 The procedure used to obtain this is called "Unfolding by Folding". 
 
-Procedure : take a starting vector (S1) (obtained as a Hagedorn fit to Run3 Pi0 data, multiply it with Response Matrix (RM), Rebin the vector to match the binning of raw Pi0 spectrum.  Compare point by point and obtain a ratio. Correct S1 by the ratio and d another iteation. 
+Procedure : take a starting vector (S1) obtained as a Hagedorn fit to Run3 Pi0 data,
+multiply it with Response Matrix (RM), Rebin the vector to match the binning of raw Pi0 spectrum.
+Compare point by point and obtain a ratio. Correct S1 by the ratio and d another iteation. 
 
-In 5 iteration, it converges to the raw Pi0 spectrum. 
+In 5 iterations, it converges to the raw Pi0 spectrum. 
 
-This will create a four panel Canvas. Panel 1 has the starting spectrum. Panel two has the RM and panel three has the rotated vector and the true data and panel 4 has a ratio plot
+This will create a four panel Canvas.
+Panel 1 has the starting spectrum.
+Panel two has the RM and panel three has the rotated vector
+and the true data and panel 4 has a ratio plot
 
-Errors are calculated in a different code. 
+Errors are calculated in a different code unit. 
 **/
 
 
 void VConvolution_Pi0(){
-
-
 
   const int NPT_UEB=28;
   const int NPT_EB=60;
@@ -23,14 +31,12 @@ void VConvolution_Pi0(){
   const int NSEC =2;
   const int NTI =3;
   int startCent[NCE] = {00, 20, 40, 60, 00}; //lower bound on centrality based binning
-  int stopCent[NCE]  = {20, 40, 60, 88, 88};//upper bound on centrality based binning
+  int stopCent[NCE]  = {20, 40, 60, 88, 88}; //upper bound on centrality based binning
  
   char pid[NPID][10]={"noPID","Chi2","Stoch"};
- char sector [NSEC][10] = {"PbSc", "PbGl"};
- char buffer1[100];
- char buffer2[100];
-
-
+  char sector [NSEC][10] = {"PbSc", "PbGl"};
+  char buffer1[100];
+  char buffer2[100];
 
 
  TH1D *s_EB[NTI]; // starting equal distribution
@@ -87,9 +93,6 @@ for(int iti =0 ; iti<NTI+1; iti++)
    }
  
  
- 
-
-  
 //************* Equal Binned vector **************** 
 
 for (int icent =4; icent<NCE; icent++)
@@ -134,16 +137,11 @@ for (int icent =4; icent<NCE; icent++)
 	     
 	     for (int i=0; i<NPT_EB; i++){ //gen for generated    
 	       for (int j=0; j<NPT_EB; j++){//mea for measured
-		 matrix_EB[i][j]=RM_EB->GetBinContent(i+1,j+1);
-		 //	 if(j==1)
-		 //cout<<"\n"<<matrix_EB[i][j];
+			 matrix_EB[i][j]=RM_EB->GetBinContent(i+1,j+1);
 	       }
 	     }
 	     
-	    
-	    
-
-	     //******BBCpERT function that we draw as histogram *****
+	    //******BBCpERT function that we draw as histogram *****
 	    
 	     ifstream bbc;
 	     bbc.open(Form("output_plots/txt/scaledUEB_rawPi0_BBCpERT_%s_%dCC%d_%s_3Sig.txt", sector[isec], startCent[icent], stopCent[icent],pid[iPID]));
@@ -163,14 +161,12 @@ for (int icent =4; icent<NCE; icent++)
 		 pt_bbc[i]=pt;
 		 yield_bbc[i]=y;
 		 yield_err_bbc[i]=ye; 
-		 //cout<<"\n BBC opened";
-		 //	 cout<<"\n"<<pt_bbc[i]<<"\t"<<yield_bbc[i];
 		 i++;
 	       }
 	    
 	     int numPtpoints_UEB=0;
 	     int numPtpoints_EB=0;
-	     //cout<<"\n The last pt bin"<<pt_bbc[i-1];
+
 	       for (int k=0; k<NPT_UEB; k++)
 		 {
 		   if (pt_bM_UEB[k]<=pt_bbc[i-1])
@@ -182,7 +178,7 @@ for (int icent =4; icent<NCE; icent++)
 		   if (pt_bM_EB[k]<=ptl_UEB[i+1])
 		   {
 		     numPtpoints_EB++;
-		     //cout<<"\n"<<icent<<"\t"<<pt_bM_EB[k]<<"\t"<<pt_bbc[i-1]<<"\t"<<ptl_UEB[i+1];
+;
 		     }
 		 } 
 	       // numPtpoints_EB+=3;

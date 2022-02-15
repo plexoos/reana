@@ -4,10 +4,9 @@ inputs:
     - ./raw_taxiData
     - ./sim_Pi0Histogram
   files:
-    - ./pi0extraction.cc
-    - ./WGRatio.cc
-    - ./generationRM_Pi0.cc
-    - ./VConvolution_Pi0.cc
+    - ./pi0extraction.C
+#    - ./WGRatio.cc
+#    - ./VConvolution_Pi0.cc
     - ./universal.h
     - ./setup_env.csh
     - ./pi0extraction.csh
