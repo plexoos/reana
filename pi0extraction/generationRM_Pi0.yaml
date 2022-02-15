@@ -1,6 +1,7 @@
 version: 0.0.1
 inputs:
   files:
+    - ./setup_env.csh
     - ./generationRM_Pi0.C
     - ./generationRM_Pi0.csh
     - ./embedPi0dAu.tar

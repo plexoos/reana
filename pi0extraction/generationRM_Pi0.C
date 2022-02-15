@@ -1,8 +1,12 @@
-// Modified from the original version by Niv Ram by M.Potekhin for integration with REANA
+// 
+// Modified from the original version by Niv Ram by M.Potekhin
+// for integration into REANA workflows
+//
 void generationRM_Pi0()
 {
-	TFile *input_root = new TFile("sim_Pi0Histogram/EmbedPi0dAu.root", "READ");
-	TFile *output_root = new TFile("Pion_RM.root", "RECREATE");
+	TFile *input_root	= new TFile("EmbedPi0dAu.root",	"READ");
+	TFile *output_root	= new TFile("Pion_RM.root",		"RECREATE");
+
 	const int NPT = 60;
 	const int NCE = 5;
 	const int NPID = 3;
