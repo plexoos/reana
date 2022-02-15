@@ -14,12 +14,15 @@ echo '********************************************************************'
 echo root -l -b -q 'WGRatio.cc'
 root -l -b -q 'WGRatio.cc'
 
-echo '********************************************************************'
 
-echo root -l -b -q 'generationRM_Pi0.cc'
-root -l -b -q 'generationRM_Pi0.cc'
+# Migrated into a separate workflow
+# echo '********************************************************************'
+# echo root -l -b -q 'generationRM_Pi0.cc'
+# root -l -b -q 'generationRM_Pi0.cc'
 
-echo '********************************************************************'
+################################
+
+# echo '********************************************************************'
 #echo root -l -b -q 'VConvolution_Pi0.cc'
 #root -l -b -q 'VConvolution_Pi0.cc'
 

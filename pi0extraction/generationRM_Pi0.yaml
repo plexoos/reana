@@ -1,0 +1,22 @@
+version: 0.0.1
+inputs:
+  files:
+    - ./generationRM_Pi0.C
+    - ./generationRM_Pi0.csh
+    - ./embedPi0dAu.tar
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'registry.sdcc.bnl.gov/sdcc-fabric/rhic_sl7_ext:1.3'
+        commands:
+        - tar xvf embedPi0dAu.tar
+        - chmod +x ./generationRM_Pi0.csh
+        - ls -l > output.txt
+        - addPhenix EmbedPi0dAu.root EmbedPi0dAu_*
+        - ls -l >> output.txt
+
+outputs:
+  files:
+    - output.txt
+

@@ -1,10 +1,11 @@
 void WGRatio(){
-  Bool_t verbose= false;
- const n = 30;
- ifstream bbc;
- ifstream ert;
- ifstream ratio;
- ofstream combined; 
+
+	Bool_t verbose= false;
+	const n = 30;
+	ifstream bbc;
+	ifstream ert;
+	ifstream ratio;
+	ofstream combined; 
 
  char path[500];
  sprintf (path,"output_plots/txt/");
@@ -12,32 +13,33 @@ void WGRatio(){
  TFile *output_root = new TFile("output_plots/root/CombinedPlot_BBCpERT.root", "RECREATE");
  
  char filename[100];
- //the below normaization is obtained from comparing corrected Pi0 with with NN's. Ans then I am going to use this to boostrap my ERT. 
+
+ // This normaization is obtained from comparing corrected Pi0 with with NN's.
+ // Then it is used to boostrap ERT. 
+
  double normalization_ERT=1;
  double normalization_ERT=1.505/0.963;
 
- double normalization_MB=1;
- const int NCE = 5;
- const int NPID = 2;
- const int NSEC =2;
- const int NTOF=2;
- const int NPT_UEB=28;
+ double normalization_MB	= 1;
+ const int NCE				= 5;
+ const int NPID				= 2;
+ const int NSEC				= 2;
+ const int NTOF				= 2;
+ const int NPT_UEB			= 28;
 
- // double co_pt[5]={6.5,6.5,6.5,6.5,6.5};//change over pt
  double co_pt=6.5;//change over pt
 
- double ptl_UEB[NPT_UEB+1];//28 itervals. [i,i+1] are the 28 intervals. so 29 numbers
+ double ptl_UEB[NPT_UEB+1]; //28 itervals. [i,i+1] are the 28 intervals. so 29 numbers
  for(int i=0;i<NPT_UEB+1;i++) {
    if(i<21) ptl_UEB[i]=i*0.5;
-   else if(i<27) ptl_UEB[i]=10+(i-20)*2.0;
-   else if(i==27) ptl_UEB[i] = 25.0;
-   else if(i==28) ptl_UEB[i] = 30.0;
-   
+   else if(i<27)  ptl_UEB[i]	= 10+(i-20)*2.0;
+   else if(i==27) ptl_UEB[i]	= 25.0;
+   else if(i==28) ptl_UEB[i]	= 30.0;
  }
 
 
- int startCent[NCE] = {00, 20, 40, 60, 00}; //lower bound on centrality based binningS
- int stopCent[NCE]  = {20, 40, 60, 88, 88};//upper bound on centrality based binning
+ int startCent[NCE] = {00, 20, 40, 60, 00}; // lower bound on centrality based binning
+ int stopCent[NCE]  = {20, 40, 60, 88, 88}; // upper bound on centrality based binning
 
  TLine *line1 = new TLine(co_pt,1e-12,co_pt,1); 
  line1->SetLineColor(kBlue);
@@ -48,7 +50,6 @@ void WGRatio(){
  char tof[NTOF][10]={"5ns", "3Sig"}; 
  
  TLegend *legend;
-
 
  for(int isec=0; isec<NSEC-1; isec++)
    {
@@ -67,10 +68,11 @@ void WGRatio(){
 		 sprintf(bbc_file, "%s/scaledUEB_rawPi0_MB_%s.txt", path,filename);
 		 cout<<"\n\n"<<bbc_file;
 		 bbc.open(bbc_file);
+
 		 char ert_file[500];
-		 // sprintf(ert_file, "%s/scaledUEB_rawPi0_ERT_%s.txt", path,filename);
 		 sprintf(ert_file, "%s/scaledUEB_rawPi0_ERT_%s.txt", path,filename);	
 		 ert.open(ert_file);
+
 		 char ratio_file[500];
 		 sprintf (ratio_file,"output_plots/txt/ratio_%s.txt",filename);
 		 ratio.open(ratio_file);
@@ -79,8 +81,6 @@ void WGRatio(){
 		 sprintf (combined_file,"output_plots/txt/scaledUEB_rawPi0_BBCpERT_%s.txt",filename);
 		 TH1D *pi0Spectra = new TH1D(Form("BBCpERT_%s",filename),Form("BBCpERT_%s",filename),NPT_UEB,ptl_UEB);
 		 combined.open(combined_file);
-
-
 
 		  double pt_bbc[n];
 		  double pt_err[n];
