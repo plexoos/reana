@@ -7,6 +7,7 @@ inputs:
     - ./setup_env.csh
     - ./VConvolution_Pi0.C
     - ./VConvolution_Pi0.csh
+    - ./Pion_RM.root
 workflow:
   type: serial
   specification:
